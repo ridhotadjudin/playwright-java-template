@@ -1,0 +1,5 @@
+browser = chromium
+headless = false
+timeout = 120
+recordingVideo = true
+environment = staging
