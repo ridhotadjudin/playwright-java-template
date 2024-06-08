@@ -1,9 +1,10 @@
 package id.nexchief.stepDefinitions;
 
-import id.nexchief.staging.pageobject.Login;
+import id.nexchief.pageobject.Login;
 import id.nexchief.utils.TestBase;
 import id.nexchief.utils.TestContext;
 import id.nexchief.utils.TestDataContext;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.apache.log4j.Logger;
 
@@ -29,14 +30,20 @@ public class _Hooks extends TestBase {
     private void login() throws IOException {
         String environment = TestDataContext.getEnvironmentProfile();
         String url = TestDataContext.getEnvironmentUrl(environment);
-        login.doLogin(url);
+        String username = TestDataContext.getUsername();
+        String password = TestDataContext.getPassword();
+        login.doLogin(url, username, password);
         playwright.selectors().setTestIdAttribute("data-id");
     }
 
-    private void getFinalSecreenshot() {
+    private void getFinalScreenshot() {
         try {
-            TestContext.log
+            TestContext.logWithScreenshot("Final Screenshot");
+        } catch (Exception e) {
+            log.debug("Failed to get the final screenshoot");
+            e.printStackTrace();
         }
+
     }
 
 }

@@ -1,4 +1,8 @@
-package id.nexchief.staging.pageobject;
+package id.nexchief.pageobject;
 
-public class Portal {
+import id.nexchief.utils.GenObjGui;
+import id.nexchief.utils.TestBase;
+
+public class Portal extends TestBase {
+
 }

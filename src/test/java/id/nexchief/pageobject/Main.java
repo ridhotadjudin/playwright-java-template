@@ -1,4 +1,4 @@
-package id.nexchief.staging.pageobject;
+package id.nexchief.pageobject;
 
 public class Main {
 }

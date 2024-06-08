@@ -48,9 +48,23 @@ public class TestDataContext {
     public static String getEnvironmentUrl(String environment) throws IOException {
         String finalUrl = "";
         Properties url_properties = genLib.getPropertiesFromFile("url.properties");
-        finalUrl = url_properties.getProperty(environment);
+        finalUrl = url_properties.getProperty("url");
         log.info("URL : " + finalUrl);
         return finalUrl;
+    }
+
+    public static String getUsername() throws IOException {
+        Properties env_properties = genLib.getPropertiesFromFile("Credentials.java");
+        String username = env_properties.getProperty("username");
+        log.info("Username : " + username);
+        return username;
+    }
+
+    public static String getPassword() throws IOException {
+        Properties env_properties = genLib.getPropertiesFromFile("Credentials.java");
+        String password = env_properties.getProperty("password");
+        log.info("Password : " + password);
+        return password;
     }
 
 }
